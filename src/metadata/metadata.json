@@ -1,0 +1,149 @@
+{
+  "package": "Darksky",
+  "tagline": "Darksky API",
+  "description": "The Dark Sky Company specializes in weather forecasting and visualization.",
+  "image": "https://logo.clearbit.com/darksky.net?s=128",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Darksky-Package",
+  "keywords": [
+    "weather"
+  ],
+  "accounts": {
+    "domain": "https://darksky.net",
+    "credentials": [
+      "apiKey"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "getForecastRequest",
+      "description": "A Forecast Request returns the current weather conditions, a minute-by-minute forecast for the next hour (where available), an hour-by-hour forecast for the next 48 hours, and a day-by-day forecast for the next week.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source code that you transmit to clients.)",
+          "required": true
+        },
+        {
+          "name": "coordinates",
+          "type": "Map",
+          "info": "Location",
+          "required": true
+        },
+        {
+          "name": "exclude",
+          "type": "List",
+          "info": "Exclude some number of data blocks from the API response. This is useful for reducing latency and saving cache space. The value blocks should be a comma-delimeted list (without spaces) of any of the following: currently, minutely, hourly, daily, alerts, flags",
+          "required": false,
+          "structure": {
+            "name": "blockName",
+            "type": "String",
+            "info": "Block you want to exclude",
+            "required": false
+          }
+        },
+        {
+          "name": "hourly",
+          "type": "Boolean",
+          "info": "When present, return hour-by-hour data for the next 168 hours, instead of the next 48.",
+          "required": false
+        },
+        {
+          "name": "lang",
+          "type": "String",
+          "info": "Return summary properties in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set both parameters appropriately.)",
+          "required": false
+        },
+        {
+          "name": "units",
+          "type": "Select",
+          "options": ["auto", "ca", "uk2", "us", "si"],
+          "info": "Return weather conditions in the requested units. [units] should be one of the following: auto, ca, uk2, us, si",
+          "required": false
+        },
+        {
+          "name": "lang",
+          "type": "String",
+          "info": "Return summary properties in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set both parameters appropriately.). See at https://darksky.net/dev/docs/forecast for details",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getTimeMachineRequest",
+      "description": "A Time Machine Request returns the observed (in the past) or forecasted (in the future) hour-by-hour weather and daily weather conditions for a particular date.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source code that you transmit to clients.)",
+          "required": true
+        },
+        {
+          "name": "coordinates",
+          "type": "Map",
+          "info": "Location",
+          "required": true
+        },
+        {
+          "name": "exclude",
+          "type": "List",
+          "info": "Exclude some number of data blocks from the API response. This is useful for reducing latency and saving cache space. Any of the following: currently, minutely, hourly, daily, alerts, flags",
+          "required": false,
+          "structure": {
+            "name": "blockName",
+            "type": "String",
+            "info": "Block you want to exclude",
+            "required": false
+          }
+        },
+        {
+          "name": "hourly",
+          "type": "Boolean",
+          "info": "When present, return hour-by-hour data for the next 168 hours, instead of the next 48.",
+          "required": false
+        },
+        {
+          "name": "lang",
+          "type": "String",
+          "info": "Return summary properties in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set both parameters appropriately.)",
+          "required": false
+        },
+        {
+          "name": "units",
+          "type": "Select",
+          "options": ["auto", "ca", "uk2", "us", "si"],
+          "info": "Return weather conditions in the requested units. [units] should be one of the following: auto, ca, uk2, us, si",
+          "required": false
+        },
+        {
+          "name": "lang",
+          "type": "String",
+          "info": "Return summary properties in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set both parameters appropriately.). See at https://darksky.net/dev/docs/forecast for details",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
+}
+
