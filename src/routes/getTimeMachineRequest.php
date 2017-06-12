@@ -15,7 +15,16 @@ $app->post('/api/Darksky/getTimeMachineRequest', function ($request, $response) 
     }
 
     $param = [];
-    $url = $settings['apiUrl'] . "/" . $postData['args']['apiKey'] . "/" . $postData['args']['coordinates'] . ',' . $postData['args']['time'];
+
+    $date = DateTime::createFromFormat('Y-m-d  H:i:s', $postData['args']['time']);
+    if (!$date instanceof DateTime) {
+        $result['callback'] = 'error';
+        $result['contextWrites']['to']['status_code'] = 'API_ERROR';
+        $result['contextWrites']['to']['status_msg'] = 'Please check time format. Accepted format: YYYY-MM-DD HH:mm:ss';
+        return $response->withJson($result);
+    }
+
+    $url = $settings['apiUrl'] . "/" . $postData['args']['apiKey'] . "/" . $postData['args']['coordinates'] . ',' . $date->getTimestamp();
 
     if (!empty($postData['args']['exclude'])) {
         $param['exclude'] = implode(',', $postData['args']['exclude']);
