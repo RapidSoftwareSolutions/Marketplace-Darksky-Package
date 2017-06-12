@@ -49,12 +49,6 @@
           "required": false
         },
         {
-          "name": "lang",
-          "type": "String",
-          "info": "Return summary properties in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set both parameters appropriately.)",
-          "required": false
-        },
-        {
           "name": "units",
           "type": "Select",
           "options": ["auto", "ca", "uk2", "us", "si"],
@@ -96,6 +90,12 @@
           "required": true
         },
         {
+          "name": "time",
+          "type": "DatePicker",
+          "info": "A Time Machine Request returns the observed (in the past) or forecasted (in the future) hour-by-hour weather and daily weather conditions for a particular date",
+          "required": true
+        },
+        {
           "name": "exclude",
           "type": "List",
           "info": "Exclude some number of data blocks from the API response. This is useful for reducing latency and saving cache space. Any of the following: currently, minutely, hourly, daily, alerts, flags",
@@ -111,12 +111,6 @@
           "name": "hourly",
           "type": "Boolean",
           "info": "When present, return hour-by-hour data for the next 168 hours, instead of the next 48.",
-          "required": false
-        },
-        {
-          "name": "lang",
-          "type": "String",
-          "info": "Return summary properties in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set both parameters appropriately.)",
           "required": false
         },
         {

@@ -26,7 +26,6 @@ A Forecast Request returns the current weather conditions, a minute-by-minute fo
 | coordinates| Map        | Location
 | exclude    | List       | Exclude some number of data blocks from the API response. This is useful for reducing latency and saving cache space. The value blocks should be a comma-delimeted list (without spaces) of any of the following: currently, minutely, hourly, daily, alerts, flags
 | hourly     | Boolean    | When present, return hour-by-hour data for the next 168 hours, instead of the next 48.
-| lang       | String     | Return summary properties in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set both parameters appropriately.)
 | units      | Select     | Return weather conditions in the requested units. [units] should be one of the following: auto, ca, uk2, us, si
 | lang       | String     | Return summary properties in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set both parameters appropriately.). See at https://darksky.net/dev/docs/forecast for details
 
@@ -37,9 +36,9 @@ A Time Machine Request returns the observed (in the past) or forecasted (in the 
 |------------|------------|----------
 | apiKey     | credentials| Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source code that you transmit to clients.)
 | coordinates| Map        | Location
+| time       | DatePicker | A Time Machine Request returns the observed (in the past) or forecasted (in the future) hour-by-hour weather and daily weather conditions for a particular date. Example: `2017-01-01 12:13:15`
 | exclude    | List       | Exclude some number of data blocks from the API response. This is useful for reducing latency and saving cache space. Any of the following: currently, minutely, hourly, daily, alerts, flags
 | hourly     | Boolean    | When present, return hour-by-hour data for the next 168 hours, instead of the next 48.
-| lang       | String     | Return summary properties in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set both parameters appropriately.)
 | units      | Select     | Return weather conditions in the requested units. [units] should be one of the following: auto, ca, uk2, us, si
 | lang       | String     | Return summary properties in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set both parameters appropriately.). See at https://darksky.net/dev/docs/forecast for details
 
