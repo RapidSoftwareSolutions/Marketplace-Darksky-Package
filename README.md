@@ -1,7 +1,7 @@
 [![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/Darksky/functions?utm_source=RapidAPIGitHub_DarkskyFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
 # Darksky Package
 The Dark Sky Company specializes in weather forecasting and visualization.
-* Domain: [https://darksky.net](https://https://darksky.net)
+* Domain: [https://darksky.net](https://darksky.net)
 * Credentials: apiKey
 
 ## How to get credentials: 
